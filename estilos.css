@@ -1,0 +1,497 @@
+*{ 
+    padding:0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Nanum Myeongjo', serif;
+    font-family: 'Poppins', sans-serif;
+  }
+  body{
+    background-color: rgb(249, 245, 239);
+  }
+  .container{
+    max-width: 100%;
+  }
+
+  h1{
+    font-size: 50px;
+    text-align: center;
+  }
+  #ul_nav{
+   margin-right: 30px;
+   padding-right: 30px;
+  }
+
+  .nav-item{
+    border: 2px solid #ae175b;
+    margin: 0px 15px;
+   
+  
+  }
+
+  .nav-link{
+    color:#ae175b ;
+    font-weight: 500;
+  }
+
+  .nav-link:hover{
+    color:grey;
+  }
+ .active1{
+  background-color:#ae175b;
+  color: aliceblue;
+
+ }
+
+ .form-check{
+  padding: 0;
+ 
+ }
+
+#carouselWithInterval{
+  background-color:#48809f ;
+
+ }
+
+.navbar1{
+  
+  background-color: rgb(149, 240, 225);
+  max-width: 100%;
+}
+
+.figure1{
+  margin: 0;
+}
+
+.logo{
+  margin-left: 30px;
+}
+
+.row{
+  margin: 100px 20px;
+}
+
+.card-img-top{
+  width: 80%;
+  height: 80%;
+  position:relative;
+  left: 10px;
+  top: 10px;
+  margin:20px;
+  box-shadow: -6px -6px 6px #887e82;
+
+}
+.card{
+  border: 1px solid #ae175b;
+}
+
+.card_price{
+  display: flex;
+  justify-content: space-around;
+}
+
+.bottom_card{
+  border: 1px solid #ae175b;
+  box-shadow: -6px -6px 6px #887e82;
+  text-decoration: none;
+  cursor: pointer;
+  color:#ae175b ;
+  padding: 5px;
+  font-size: smaller;
+}
+
+ footer{
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  bottom: 0;
+  background-color:#48809f  ;
+  margin-top: 60px;
+  padding: 20px;
+  
+
+ }
+ footer > div{
+  display: flex;
+  justify-content: space-between;
+ }
+ .cohort{
+  display:flex;
+  justify-content: right;
+  font-size: x-large;
+  margin: 0 20px;
+ }
+
+ .a_footer{
+  padding: 0px 5px;
+ }
+
+ #contact_form{
+   position: relative;
+   left: 200px;
+   max-width: 60%;
+   margin: 40px 70px;
+   padding: 10px 30px;
+   
+ }
+ .button_form{
+  display: flex;
+  justify-content: end;
+  margin-right: 10px;
+ }
+
+ #button1{
+  border: 1px solid #ae175b;
+  color:#ae175b;
+  font-weight: 400;
+  padding: 7px;
+
+ }
+ #button1:hover{
+  background-color: #ae175b;
+  color: aliceblue;
+ }
+
+table{
+  border: 2px solid gray;
+  margin: 30px 60px;
+  width: 90%;
+  border-spacing: 0;
+  padding: 10px;
+  border-collapse: collapse;
+}
+tr,td {
+  margin: 5px;
+  text-align: start;
+  border: 1px solid gray ;
+  padding: 10px 0px 10px 10px;
+}
+
+ th{
+  margin-left: 5px;
+  background-color: #b2afaf;
+  padding: 7px 0px 7px 7px;
+  border: 2px solid grey;
+  
+ }
+
+ #detail-row{
+   display: flex;
+   justify-content: space-between;
+   width: 50%;
+   border: 2px solid #ae175b;
+   padding: 40px;
+   margin-left: 300px;
+ }
+
+ /* show data */
+
+ #h1 {
+  background: #2a317d;
+  color: whitesmoke;
+  font-size: 3rem;
+
+  
+}
+.container-table {
+  display: flex;
+  justify-content: center;
+  margin: 100px 200px;
+  width: 80%;
+}
+   /* responsive*/
+@media screen and (max-width: 1200px){
+  .navbar1{
+  max-width: 100%;
+  
+ }
+
+ #ul_nav{
+  margin-bottom: 7px;
+  margin-left: 15px;
+ }
+
+.logo{
+  margin-bottom: 20px;
+  padding: 10px;
+}
+ 
+.navbar2{
+  flex-wrap: nowrap;
+ max-width: 100%;
+}
+
+h1{
+  font-size: 45px;
+}
+
+ .d-flex{
+ position: absolute;
+ bottom: -25px;
+  left: 180px;
+ padding:  7px;
+ 
+ }
+
+.row{
+  display:block;
+  justify-content: center;
+
+}
+ .col{
+  margin: 30px 200px;
+ }
+
+#contact_form{
+ left: 100px;
+}
+
+table{
+  margin: 30px 40px;
+}
+
+.col23{
+  margin: 20px 20px 20px 10px;
+ 
+}
+
+#detail-row{
+  max-width: 100%;
+ justify-content:center;
+ margin: 40px 200px;
+ display:block;
+ padding: 20px 10px 20px 20px;
+}
+
+}
+
+@media screen and (max-width: 800px){
+
+  .navbar1{
+    max-width: 100%;
+    
+   }
+   
+   #ul_nav{
+    display: flex;
+    justify-content: center !important;
+    width:100%;
+    margin: 0;
+    
+   }
+    .logo{
+      margin: 10px;
+    }
+   .nav-item{
+    margin: 7px;
+    font-size: small;
+   }
+
+   h1{
+    font-size: 37px;
+   }
+
+   .navbar2{
+    flex-wrap: wrap;
+    max-width: 95%;
+    margin: 0 !important;
+  }
+
+  .form-check{
+   font-size: smaller;
+  }
+
+  .navbar-expand-lg{
+    margin: 0 !important;
+  }
+
+ .container-fluid{
+  width: 95%;
+ }
+  .form-check-input{
+    margin-right: 0;
+  }
+
+  .d-flex{
+    height: 43px;
+    margin-right: 100px;
+    left: 130px;
+    bottom: -2px;
+    }
+
+    .form-control{
+      margin:0 !important;
+    }
+  #search-addon{
+    margin-right: 20px;
+    padding-left:7px;
+  }
+
+  .icon-search{
+    width: 25px;
+    height: 25px;
+  }
+
+ .col{
+   margin: 30px 70px;
+   width:70%;
+  }
+
+  footer{
+  padding : 20px 5px;
+  }
+.a_footer{
+  padding: 0;
+  
+}
+ .icon-footer{
+  width:32px;
+  height: 32px;
+ }
+
+ .cohort{
+  font-size: medium;
+ }
+
+ #contact_form{
+  left: 40px;
+  margin:30px 20px;
+  max-width: 83%;
+ }
+
+.form-label, #button1{
+  font-size:smaller ;
+}
+
+table{
+  margin: 30px 20px;
+  font-size: smaller;
+}
+td, tr{
+  padding: 10px;
+}
+
+#detail-row{
+  
+width:85%;
+margin: 30px 20px;
+padding: 20px;
+}
+
+.col23{
+  margin: 10px 5px;
+  padding-left: 5px;
+}
+
+}
+
+@media screen and (max-width: 500px){
+  .logo{
+    margin: 5px 50px;
+    padding: 5px 10px;
+  }
+
+  .figure1{
+    margin: 5px 10px;
+  }
+
+  #ul_nav{
+    display: inline-block;
+    width:100%;
+    margin: 0px 15px;
+    padding: 0px 5px;
+    
+   }
+
+   h1{
+    font-size: x-large;
+   }
+
+
+   .navbar-expand-lg {
+     margin: 20px 45px !important; 
+}
+
+.container-fluid{
+  width:100%;
+}
+
+.form-check-inline{
+  margin:6px;
+}
+.my-5{
+  margin: 0px !important;
+}
+
+.d-flex{
+  bottom: -40px;
+  left: 5px;
+  width: 100%;
+}
+
+.form-control{
+  font-size: small;
+}
+
+.col{
+  margin:20px;
+  padding: 0;
+  width:40%
+}
+ .card_detail1{
+  width: 15rem !important;
+ }
+
+ .bottom_card{
+  font-size: smaller;
+  border: none;
+  box-shadow: -4px -4px 4px #887e82;
+  text-decoration: underline;
+ }
+ .card-text{
+  margin: 10px !important;
+ }
+
+ #contact_form{
+  left: 0px;
+  max-width: 100%;
+  margin:30px 0px;
+ }
+
+.cohort{
+  margin:0;
+  font-size: small;
+}
+
+table{
+  margin: 30px 0px;
+ font-size: small;
+}
+
+
+
+#detail-row{
+ width: 100%;
+ padding: 4px;
+ margin:25px 8px;
+ border: none;
+ 
+}
+.col23{
+  margin: 0;
+  
+}
+.card-details{
+  width: 14rem !important;
+  padding: 10px;
+  margin: 10px 0px;
+}
+
+#row{
+  margin: 25px !important;
+}
+
+#card-img23{
+  width: 85%;
+  height: 85%;
+}
+}
