@@ -232,17 +232,16 @@ h1{
  
  }
 
-.row{
-  display:block;
-  justify-content: center;
-
+.col{
+  margin:30px 0px;
+ 
 }
- .col{
-  margin: 30px 200px;
- }
+
+
 
 #contact_form{
- left: 100px;
+ left: 12px;
+ max-width: 80%;
 }
 
 table{
@@ -332,9 +331,13 @@ table{
   }
 
  .col{
-   margin: 30px 70px;
-   width:70%;
+   margin: 20px 70px;
+   width:90%;
   }
+  .card{
+    width: 20rem !important;
+  }
+
 
   footer{
   padding : 20px 5px;
@@ -353,9 +356,9 @@ table{
  }
 
  #contact_form{
-  left: 40px;
+  left: 0px;
   margin:30px 20px;
-  max-width: 83%;
+  max-width: 90%;
  }
 
 .form-label, #button1{
@@ -380,6 +383,9 @@ padding: 20px;
 .col23{
   margin: 10px 5px;
   padding-left: 5px;
+}
+.card-details{
+  width: 18rem !important;
 }
 
 }
@@ -433,12 +439,12 @@ padding: 20px;
 }
 
 .col{
-  margin:20px;
-  padding: 0;
-  width:40%
+  margin: 20px 50px;
+  padding: 5px 30px;
+  width: 80%;
 }
  .card_detail1{
-  width: 15rem !important;
+  width: 20rem !important;
  }
 
  .bottom_card{
@@ -463,7 +469,7 @@ padding: 20px;
 }
 
 table{
-  margin: 30px 0px;
+  margin: 30px;
  font-size: small;
 }
 
@@ -481,9 +487,9 @@ table{
   
 }
 .card-details{
-  width: 14rem !important;
-  padding: 10px;
-  margin: 10px 0px;
+  width: 20rem !important;
+  padding:0;
+  margin: 3px 0px;
 }
 
 #row{
