@@ -58,28 +58,36 @@
     </a>
   </div>
   
-  <nav class="navbar navbar-expand-lg m-5">
-    <div class="container-fluid  my-5">
+  <nav class="navbar navbar-expand-lg my-5 mx-3">
+    <div class="container-fluid my-5">
       
       <div class="form-check form-check-inline mx-0">
         <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
-        <label class="form-check-label" for="inlineCheckbox1">Category</label>
+        <label class="form-check-label" for="inlineCheckbox1">Book Exchange</label>
       </div>
       <div class="form-check form-check-inline mx-0">
         <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
-        <label class="form-check-label" for="inlineCheckbox2">Category</label>
+        <label class="form-check-label" for="inlineCheckbox2">Cinema</label>
       </div>
       <div class="form-check form-check-inline mx-0">
         <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3">
-        <label class="form-check-label" for="inlineCheckbox2">Category</label>
+        <label class="form-check-label" for="inlineCheckbox2">Costume Party</label>
       </div>
       <div class="form-check form-check-inline mx-0">
         <input class="form-check-input" type="checkbox" id="inlineCheckbox4" value="option4">
-        <label class="form-check-label" for="inlineCheckbox2">Category</label>
+        <label class="form-check-label" for="inlineCheckbox2">Food Fair</label>
       </div>
       <div class="form-check form-check-inline mx-0">
         <input class="form-check-input" type="checkbox" id="inlineCheckbox5" value="option5">
-        <label class="form-check-label" for="inlineCheckbox2">Category</label>
+        <label class="form-check-label" for="inlineCheckbox2">Museum</label>
+      </div>
+      <div class="form-check form-check-inline mx-0">
+        <input class="form-check-input" type="checkbox" id="inlineCheckbox6" value="option4">
+        <label class="form-check-label" for="inlineCheckbox2">Music Concert</label>
+      </div>
+      <div class="form-check form-check-inline mx-0">
+        <input class="form-check-input" type="checkbox" id="inlineCheckbox7" value="option5">
+        <label class="form-check-label" for="inlineCheckbox2">Race</label>
       </div>
       <form class="d-flex" role="search">
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" aria-describedby="search-addon">
@@ -89,88 +97,28 @@
       </form>
     </div>
   </nav>
-   <div class="row mx-3">  
-  <div class="col col-lg-2 col-md-4">
-  <div class="card text-center h-100 card_detail1" style="width: 14rem;">
-    <img src="./imagenes/Marathon.jpg" class="card-img-top" alt="A marathon">
-    <div class="card-body">
-      <h5 class="card-title my-3">Título</h5>
-      <p class="card-text my-5">Texto descriptivo</p>
-      <div class="card_price">
-      <p>price $0000</p>
-      <a href="./details.html" class="bottom_card">Ver más</a>
+  <div class="row mx-3">
+  <template id="template-card">
+  
+    <div class="col col-lg-3 col-md-4">
+    <div class="card text-center h-100 card_detail1" style="width: 17rem;">
+      <img src="..." class="card-img-top" width="300" height="170" alt="...">
+      <div class="card-body">
+        <h5 class="card-title my-3">Título</h5>
+        <p class="card-text my-5">Texto descriptivo</p>
+        <div class="card_price">
+        <span>price $0000 </span>
+        <a href="./details.html" class="bottom_card">Ver más</a>
+        </div>
       </div>
     </div>
+      </div>
+  
+    </template> 
   </div>
-    </div>
-    <div class="col col-lg-2 col-md-4">
-      <div class="card text-center h-100 card_detail1" style="width: 14rem;">
-        <img src="./imagenes/Cinema.jpg" class="card-img-top" alt="cinema">
-        <div class="card-body">
-          <h5 class="card-title my-3">Título</h5>
-          <p class="card-text my-5">Texto descriptivo</p>
-          <div class="card_price">
-          <p>price $0000</p>
-          <a href="./details.html" class="bottom_card">Ver más</a>
-        </div>
-      </div>
-      </div>
-        </div>
-        <div class="col col-lg-2 col-md-4">
-          <div class="card text-center h-100 card_detail1" style="width: 14rem;">
-            <img src="./imagenes/Food_Fair.jpg" class="card-img-top" alt="food">
-            <div class="card-body">
-              <h5 class="card-title my-3">Título</h5>
-              <p class="card-text my-5">Texto descriptivo</p>
-              <div class="card_price">
-              <p>price $0000</p>
-              <a href="./details.html" class="bottom_card">Ver más</a>
-              </div>
-            </div>
-          </div>
-            </div>
-            <div class="col col-lg-2 col-md-4">
-              <div class="card text-center h-100 card_detail1" style="width: 14rem;">
-                <img src="./imagenes/Museum_Tour.jpg" class="card-img-top" alt="Museum Tour">
-                <div class="card-body">
-                  <h5 class="card-title my-3">Título</h5>
-                  <p class="card-text my-5">Texto descriptivo</p>
-                  <div class="card_price">
-                  <p>price $0000</p>
-                  <a href="./details.html" class="bottom_card">Ver más</a>
-                </div>
-              </div>
-              </div>
-                </div>
-        
-        <div class="col col-lg-2 col-md-4">
-          <div class="card text-center h-100 card_detail1" style="width: 14rem;">
-            <img src="./imagenes/Music_Concert.jpg" class="card-img-top" alt="Music Concert">
-            <div class="card-body">
-              <h5 class="card-title my-3">Título</h5>
-              <p class="card-text my-5">Texto descriptivo</p>
-              <div class="card_price">
-              <p>price $0000</p>
-              <a href="./details.html" class="bottom_card">Ver más</a>
-              </div>
-            </div>
-          </div>
-            </div>
-            <div class="col col-lg-2 col-md-4">
-              <div class="card text-center h-100 card_detail1" style="width: 14rem;">
-                <img src="./imagenes/Costume_Party.jpg" class="card-img-top" alt="Costume Party">
-                <div class="card-body">
-                  <h5 class="card-title my-3">Título</h5>
-                  <p class="card-text my-5">Texto descriptivo</p>
-                  <div class="card_price">
-                  <p class="price_p">price $0000</p>
-                  <a href="./details.html" class="bottom_card">Ver más</a>
-                </div>
-                </div>
-              </div>
-                </div>
+                                  
 
-  </div>
+  
   <footer>
     <div>
     <a class="a_footer" href="#"><img class="icon-footer" src="./imagenes/icons8-instagram-30.png" width="40" height="40" alt="logo Instagram de Amazing Events"></a>
@@ -184,7 +132,7 @@
                  
                     
     
- 
+   <script src="./scripts/home.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>   
 </body>
 </html>

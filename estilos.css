@@ -70,9 +70,12 @@
   margin: 100px 20px;
 }
 
+.col{
+  margin-bottom: 35px ;
+}
+
 .card-img-top{
   width: 80%;
-  height: 80%;
   position:relative;
   left: 10px;
   top: 10px;
@@ -198,7 +201,19 @@ tr,td {
   margin: 100px 200px;
   width: 80%;
 }
-   /* responsive*/
+
+
+
+
+   /*********** responsive************/
+
+@media screen and (max-width: 1400px){ 
+
+.card-details{
+  width: 15rem;
+}
+}
+
 @media screen and (max-width: 1200px){
   .navbar1{
   max-width: 100%;
@@ -227,16 +242,30 @@ h1{
  .d-flex{
  position: absolute;
  bottom: -25px;
-  left: 180px;
+  left: 230px;
  padding:  7px;
+ 
+ }
+
+ .row{
+  display: flex;
+  justify-content:space-evenly;
  
  }
 
 .col{
   margin:30px 0px;
+  width: 20rem;
  
 }
+.container-fluid{
+  padding: 0;
+}
 
+.form-check{
+font-size: smaller;
+  padding:0px 10px;
+}
 
 
 #contact_form{
@@ -251,6 +280,9 @@ table{
 .col23{
   margin: 20px 20px 20px 10px;
  
+}
+.card-details{
+  width: 19rem;
 }
 
 #detail-row{
@@ -272,17 +304,18 @@ table{
    
    #ul_nav{
     display: flex;
-    justify-content: center !important;
+    flex-wrap: nowrap;
     width:100%;
-    margin: 0;
+    margin: 0px 13px;
+    padding: 0;
     
    }
     .logo{
       margin: 10px;
     }
    .nav-item{
-    margin: 7px;
-    font-size: small;
+    margin: 5px;
+    font-size: x-small;
    }
 
    h1{
@@ -295,17 +328,19 @@ table{
     margin: 0 !important;
   }
 
+
+  .container-fluid{
+   justify-content: flex-start;
+    max-width: 100%;
+    padding: 0;
+    margin: 10px;
+  }
+  
   .form-check{
-   font-size: smaller;
+  font-size: smaller;
+    padding: 5px 20px;
   }
-
-  .navbar-expand-lg{
-    margin: 0 !important;
-  }
-
- .container-fluid{
-  width: 95%;
- }
+  
   .form-check-input{
     margin-right: 0;
   }
@@ -413,8 +448,9 @@ padding: 20px;
    }
 
 
-   .navbar-expand-lg {
-     margin: 20px 45px !important; 
+  .navbar-expand-lg {
+   margin: 0px 45px !important; 
+   justify-content: flex-start;
 }
 
 .container-fluid{
@@ -423,9 +459,6 @@ padding: 20px;
 
 .form-check-inline{
   margin:6px;
-}
-.my-5{
-  margin: 0px !important;
 }
 
 .d-flex{
@@ -438,13 +471,17 @@ padding: 20px;
   font-size: small;
 }
 
+.row{
+  margin: 70px 20px;
+  justify-content: flex-end !important;
+}
 .col{
-  margin: 20px 50px;
-  padding: 5px 30px;
-  width: 80%;
+  margin:30px 0px;
+  padding: 0px 30px;
+  width: 90%;
 }
  .card_detail1{
-  width: 20rem !important;
+  width: 14rem !important;
  }
 
  .bottom_card{
@@ -469,7 +506,7 @@ padding: 20px;
 }
 
 table{
-  margin: 30px;
+  margin:0px;
  font-size: small;
 }
 
@@ -477,8 +514,8 @@ table{
 
 #detail-row{
  width: 100%;
- padding: 4px;
- margin:25px 8px;
+ padding: 10px;
+ margin:25px;
  border: none;
  
 }
@@ -487,7 +524,7 @@ table{
   
 }
 .card-details{
-  width: 20rem !important;
+  width: 14rem !important;
   padding:0;
   margin: 3px 0px;
 }
