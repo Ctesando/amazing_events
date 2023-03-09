@@ -9,10 +9,10 @@ console.log(categorias);
 let div = document.querySelector("#categorias");
 let htmlcategorias = "";
 for (let category of categorias) {
-  htmlcategorias += `<nav class="navbar navbar-expand-lg my-5 mx-3"><div class="container-fluid my-5"> <div class="form-check form-check-inline mx-0">
+  htmlcategorias += `<div class="form-check form-check-inline mx-0">
     <input class="form-check-input" type="checkbox" id="inlineCheckbox" name="${category}" value ="${category}">
-    <label class="form-check-label" for="${category}">${category}</label> </div>
-   </div> </nav>`;
+    <label class="form-check-label" for="${category}">${category}</label> 
+   </div>`;
 }
 div.innerHTML = htmlcategorias;
 
@@ -22,10 +22,9 @@ let contenedor = document.querySelector(".row3");
 
 function renderCards(array) {
   let card = document.createElement("div");
-  card.classList.add("i.name", "card-new");
+  card.classList.add("i.name", "card-new")
   array.forEach((i) => {
     let container = document.createElement("div");
-    container.classList.add("col", "col-lg-3", "col-md-4");
     let div34 = document.createElement("div");
     div34.classList.add("card", "text-center", "h-100", "card_detail1");
     let image = document.createElement("img");

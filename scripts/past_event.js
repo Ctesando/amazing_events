@@ -20,10 +20,9 @@ console.log(categorias);
 let div = document.querySelector("#categorias");
 let htmlcategorias = "";
 for (let category of categorias) {
-  htmlcategorias += `<nav class="navbar navbar-expand-lg my-5 mx-3"><div class="container-fluid my-5"> <div class="form-check form-check-inline mx-0">
+  htmlcategorias +=  `<div class="form-check form-check-inline mx-0">
     <input class="form-check-input" type="checkbox" id="inlineCheckbox" name="${category}" value ="${category}">
-    <label class="form-check-label" for="${category}">${category}</label> </div>
-   </div> </nav>`;
+    <label class="form-check-label" for="${category}">${category}</label> </div>`;
 }
 div.innerHTML = htmlcategorias;
 
