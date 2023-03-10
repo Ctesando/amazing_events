@@ -22,7 +22,7 @@ let contenedor = document.querySelector(".row3");
 
 function renderCards(array) {
   let card = document.createElement("div");
-  card.classList.add("i.name", "card-new")
+  card.classList.add("i.name", "card-new");
   array.forEach((i) => {
     let container = document.createElement("div");
     let div34 = document.createElement("div");
@@ -76,119 +76,57 @@ checkElemt.forEach((checkbox) => {
   checkbox.addEventListener("change", () => {
     const cateCheked = [];
     checkElemt.forEach((le) => {
-     
       if (le.checked) {
         cateCheked.push(le.value);
       }
-     
     });
     const filtered = data.events.filter((obj) => {
       return cateCheked.includes(obj.category);
     });
-    
-     printCard(filtered ,"#row")
+
+    printCard(filtered, "#row");
   });
 });
 
 function printCard(arr, contenedor) {
-  let content = document.querySelector(contenedor)
+  let content = document.querySelector(contenedor);
   content.innerHTML = "";
   if (arr.length > 0) {
     renderCards(arr);
-    console.log("entro por if")
+    console.log("entro por if");
   } else {
     renderCards(data.events);
-    console.log("entro por else")
-  } 
-  
+    console.log("entro por else");
+  }
 }
 
- //search por input
- 
- const searchxInput = document.getElementById('search1');
+//search por input
+
+const busquedaInput = document.getElementById("search1");
 
 function huntSearch() {
-  const valueSearched = searchxInput.value.toLowerCase().trim();
-  const filtrarEvents = data.events.filter(event => {
+  const valueSearched = busquedaInput.value.toLowerCase().trim();
+  const filtrarEvents = data.events.filter((event) => {
     const nameFound = event.name.toLowerCase().trim().includes(valueSearched);
-    const descripFound = event.description.toLowerCase().trim().includes(valueSearched);
+    const descripFound = event.description
+      .toLowerCase()
+      .trim()
+      .includes(valueSearched);
     return nameFound || descripFound;
-    
   });
-     if (filtrarEvents.length === 0) {
-       alert('No results found for the search.');
-       return;
+  if (filtrarEvents.length === 0) {
+    alert("No results found for the search.");
+    return;
   }
- 
-   
+
   printCard(filtrarEvents, "#row");
 }
 
+busquedaInput.addEventListener("input", function (ev) {
+  ev.preventDefault();
 
-
-searchxInput.addEventListener('input', function(ev) {
-  ev.preventDefault()
-
-  huntSearch()
-})
-
-
- /* // intento de combinar los filtros combinados pero no funciona
-
-const checkElemt = document.querySelectorAll('input[type="checkbox"]');
-const searchxInput = document.getElementById('search1');
-
-function applyFilters() {
-  const cateCheked = [];
-  checkElemt.forEach((le) => {
-    if (le.checked) {
-      cateCheked.push(le.value);
-    }
-  });
-
-  const valueSearched = searchInput.value.toLowerCase().trim();
-
-  const filtered = data.events.filter((obj) => {
-    const categoryMatches = cateCheked.includes(obj.category);
-
-    const nameFound = obj.name.toLowerCase().trim().includes(valueSearched);
-    const descripFound = obj.description.toLowerCase().trim().includes(valueSearched);
-
-    return categoryMatches && (nameFound || descripFound);
-  });
-
-  printCard(filtered, "#row");
-}
-
-function printCard(arr, contenedor) {
-  let content = document.querySelector(contenedor)
-  content.innerHTML = "";
-  if (arr.length > 0) {
-    renderCards(arr);
-    console.log("entro por if")
-  } else {
-    renderCards(data.events);
-    console.log("entro por else")
-  } 
-}
-
-checkElemt.forEach((checkbox) => {
-  checkbox.addEventListener("change", () => {
-    applyFilters();
-  });
+  huntSearch();
 });
-
-searchInput.addEventListener('input', function(ev) {
-  ev.preventDefault()
-
-  applyFilters();
-});
-
-*/
-
-
-
-
 
 
 
