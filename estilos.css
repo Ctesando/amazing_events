@@ -265,7 +265,26 @@ tr,td {
 .card-details{
   width: 15rem;
 }
+.card-new{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  column-gap: 10px;
+  row-gap: 50px;
+   
 }
+
+.div-container{
+ width: 80%;
+}
+.form-check-label{
+ font-size: small;
+  width:max-content;
+
+}
+.form-check{
+  padding: 30px;
+}
+
 
 @media screen and (max-width: 1200px){
   .navbar1{
@@ -315,11 +334,25 @@ h1{
   padding: 0;
 }
 
+.card-new{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+ 
+   
+}
+
 .form-check{
 font-size: smaller;
   padding:0px 10px;
 }
-
+.container-fluid{
+ width: 100%;
+}
+.d-flex{
+  position: absolute;
+  bottom: 20px;
+  width: 350px;
+}
 
 #contact_form{
  left: 12px;
@@ -381,12 +414,29 @@ table{
     margin: 0 !important;
   }
 
+  .card-new{
+    display: grid;
+    grid-template-columns: 1fr;
+   
+     
+  }
+
+.card_detail1{
+ margin-left: 65px;
+}
 
   .container-fluid{
    justify-content: flex-start;
     max-width: 100%;
     padding: 0;
     margin: 10px;
+  }
+
+  #categorias{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    row-gap: 20px;
+  
   }
   
   .form-check{
@@ -399,10 +449,8 @@ table{
   }
 
   .d-flex{
-    height: 43px;
-    margin-right: 100px;
-    left: 130px;
-    bottom: -2px;
+  left: 70px;
+ 
     }
 
     .form-control{
@@ -511,14 +559,19 @@ padding: 20px;
 }
 
 .form-check-inline{
-  margin:6px;
+  margin:10px;
+}
+ #categorias{
+  display: block;
+  margin: 0px 40px;
+ }
+.d-flex{
+ 
+  left: 10px;
+ width: 250px;
 }
 
-.d-flex{
-  bottom: -40px;
-  left: 5px;
-  width: 100%;
-}
+
 
 .form-control{
   font-size: small;
@@ -535,6 +588,12 @@ padding: 20px;
 }
  .card_detail1{
   width: 14rem !important;
+  margin: 0;
+ }
+ .card-img-top{
+  width: 180px !important;
+  left: 0;
+  margin: 0;
  }
 
  .bottom_card{
@@ -590,5 +649,6 @@ table{
 #card-img23{
   width: 85%;
   height: 85%;
+}
 }
 }

@@ -25,6 +25,7 @@ function renderCards(array) {
   card.classList.add("i.name", "card-new");
   array.forEach((i) => {
     let container = document.createElement("div");
+    container.classList.add( "div-container");
     let div34 = document.createElement("div");
     div34.classList.add("card", "text-center", "h-100", "card_detail1");
     let image = document.createElement("img");
@@ -100,9 +101,12 @@ function printCard(arr, contenedor) {
   }
 }
 
+
+
 //search por input
 
 const busquedaInput = document.getElementById("search1");
+const botonSearch = document.getElementById("search")
 
 function huntSearch() {
   const valueSearched = busquedaInput.value.toLowerCase().trim();
@@ -122,7 +126,7 @@ function huntSearch() {
   printCard(filtrarEvents, "#row");
 }
 
-busquedaInput.addEventListener("input", function (ev) {
+botonSearch.addEventListener("click", function (ev) {
   ev.preventDefault();
 
   huntSearch();
