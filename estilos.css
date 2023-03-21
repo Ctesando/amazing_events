@@ -81,6 +81,8 @@
   width: fit-content;
   padding: 0;
 }
+
+
   #search1{
     padding: 0;
     margin: 0;
@@ -212,12 +214,14 @@ table{
   border-spacing: 0;
   padding: 10px;
   border-collapse: collapse;
+  
 }
 tr,td {
   margin: 5px;
   text-align: start;
   border: 1px solid gray ;
   padding: 10px 0px 10px 10px;
+  text-align: center;
 }
 
  th{
@@ -226,6 +230,10 @@ tr,td {
   padding: 7px 0px 7px 7px;
   border: 2px solid grey;
   
+ }
+
+ .encabezado{
+  background-color: #e1d1d687;
  }
 
  #detail-row{
@@ -256,13 +264,33 @@ tr,td {
 .hide{
   display: none;
 }
+  #alert{
+    width: 75%;
+    display: flex;
+    justify-content:center;
+    flex-wrap: wrap;
+    margin: 0px auto 60px auto;
+  }
+#img-alert{
+  width: 50px;
+  height: 50px;
+  position: relative;
+  top: -10px;
+  margin: 5px;
 
 
+}
    /*********** responsive************/
 
 @media screen and (max-width: 1400px){ 
 
-.card-details{
+.d-flex{
+    position: absolute;
+    bottom: 50px;
+     right: 120px !important;
+     width: 350px;
+  }
+  .card-details{
   width: 15rem;
 }
 .card-new{
@@ -284,7 +312,9 @@ tr,td {
 .form-check{
   padding: 30px;
 }
-
+#detail-row{
+  width: 65%;
+}
 
 @media screen and (max-width: 1200px){
   .navbar1{
@@ -311,14 +341,15 @@ h1{
   font-size: 45px;
 }
 
- .d-flex{
- position: absolute;
- bottom: -25px;
-  left: 230px;
- padding:  7px;
+.d-flex{
+  right: 180px;
+}
  
  }
-
+ #detail-row{
+  display: flex !important;
+ width: 90%;
+ }
  .row{
   display: flex;
   justify-content:space-evenly;
@@ -348,11 +379,7 @@ font-size: smaller;
 .container-fluid{
  width: 100%;
 }
-.d-flex{
-  position: absolute;
-  bottom: 20px;
-  width: 350px;
-}
+
 
 #contact_form{
  left: 12px;
@@ -414,6 +441,12 @@ table{
     margin: 0 !important;
   }
 
+  
+  .d-flex{
+    left: 90px;
+  
+     }
+
   .card-new{
     display: grid;
     grid-template-columns: 1fr;
@@ -432,6 +465,14 @@ table{
     margin: 10px;
   }
 
+  #detail-row{
+    display: block !important;
+  
+   }
+   .col-img{
+    top:0;
+   }
+
   #categorias{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -448,10 +489,6 @@ table{
     margin-right: 0;
   }
 
-  .d-flex{
-  left: 70px;
- 
-    }
 
     .form-control{
       margin:0 !important;
@@ -571,8 +608,6 @@ padding: 20px;
  width: 250px;
 }
 
-
-
 .form-control{
   font-size: small;
 }
@@ -590,10 +625,10 @@ padding: 20px;
   width: 14rem !important;
   margin: 0;
  }
+
  .card-img-top{
-  width: 180px !important;
-  left: 0;
-  margin: 0;
+  width: 150px !important;
+ height: 300px;
  }
 
  .bottom_card{
@@ -636,9 +671,10 @@ table{
   
 }
 .card-details{
-  width: 14rem !important;
+  width: 15rem !important;
+ height: fit-content;
   padding:0;
-  margin: 3px 0px;
+  margin: 10px 0px;
 }
 
 #row{
@@ -648,7 +684,6 @@ table{
 
 #card-img23{
   width: 85%;
-  height: 85%;
-}
+  
 }
 }

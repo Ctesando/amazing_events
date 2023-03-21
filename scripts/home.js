@@ -1,26 +1,29 @@
-categorias = [];
-data.events.forEach((ele) => {
-  if (!categorias.includes(ele.category)) {
-    categorias.push(ele.category);
-  }
-});
-console.log(categorias);
 
-let div = document.querySelector("#categorias");
-let htmlcategorias = "";
-for (let category of categorias) {
-  htmlcategorias += `<div class="form-check form-check-inline mx-0">
-    <input class="form-check-input" type="checkbox" id="inlineCheckbox" name="${category}" value ="${category}">
-    <label class="form-check-label" for="${category}">${category}</label> 
-   </div>`;
+let urlApi = "https://mindhub-xj03.onrender.com/api/amazing"
+let datosMyApi;
+async function winData(){
+  try{
+    let response = await fetch(urlApi)
+    console.log(response)
+    datosMyApi = await response.json()
+     console.log(datosMyApi)
+    renderCards(datosMyApi.events)
+    await filterCategories(datosMyApi.events)
+    showCategories(categorias)
+    printCard(datosMyApi.events, "#row")
+    huntSearch(datosMyApi.events)
+  
+  } catch(error){
+    console.log('Hay un error en la Api', error)
+  }
+       
 }
-div.innerHTML = htmlcategorias;
+ winData()
 
 //Genero las cards dinamicamente
 
-let contenedor = document.querySelector(".row3");
-
-function renderCards(array) {
+async  function renderCards(array) {
+  let contenedor = document.querySelector(".row3");
   let card = document.createElement("div");
   card.classList.add("i.name", "card-new");
   array.forEach((i) => {
@@ -66,71 +69,111 @@ function renderCards(array) {
     contenedor.appendChild(card);
   });
 }
+ 
 
-renderCards(data.events);
+
+//filtrado de categorias
+
+categorias = [];
+ async function filterCategories (arr){
+arr.forEach((ele) => {
+  if (!categorias.includes(ele.category)) {
+    categorias.push(ele.category);
+  }
+})
+ }
+
+ 
+console.log(categorias);
+
+let div = document.querySelector("#categorias");
+ async function showCategories(item){
+  item.forEach(category =>{
+    div.innerHTML += `<div class="form-check form-check-inline mx-0">
+    <input class="form-check-input" type="checkbox" id="inlineCheckbox" name="${category}" value ="${category}">
+    <label class="form-check-label" for="${category}">${category}</label> 
+   </div>`;
+  })
+    changesCategories()   
+ }
+  
 
 //filtrar por checkboxes
-
+ async function changesCategories() {
 const checkElemt = document.querySelectorAll('input[type="checkbox"]');
-
+console.log( checkElemt)
 checkElemt.forEach((checkbox) => {
   checkbox.addEventListener("change", () => {
+    console.log(checkbox)
     const cateCheked = [];
     checkElemt.forEach((le) => {
       if (le.checked) {
         cateCheked.push(le.value);
+        console.log(cateCheked)
       }
     });
-    const filtered = data.events.filter((obj) => {
+    const filtered = datosMyApi.events.filter((obj) => {
       return cateCheked.includes(obj.category);
     });
 
-    printCard(filtered, "#row");
+      printCard(filtered, "#row");
   });
 });
-
-function printCard(arr, contenedor) {
+}
+ async function printCard(arr, contenedor) {
   let content = document.querySelector(contenedor);
   content.innerHTML = "";
   if (arr.length > 0) {
     renderCards(arr);
-    console.log("entro por if");
+    console.log("entro por if,printCard");
   } else {
-    renderCards(data.events);
+    renderCards(datosMyApi.events);
     console.log("entro por else");
   }
 }
-
-
-
-//search por input
+ 
+// filtro combinado
 
 const busquedaInput = document.getElementById("search1");
 const botonSearch = document.getElementById("search")
 
-function huntSearch() {
-  const valueSearched = busquedaInput.value.toLowerCase().trim();
-  const filtrarEvents = data.events.filter((event) => {
-    const nameFound = event.name.toLowerCase().trim().includes(valueSearched);
-    const descripFound = event.description
-      .toLowerCase()
-      .trim()
-      .includes(valueSearched);
-    return nameFound || descripFound;
-  });
-  if (filtrarEvents.length === 0) {
-    alert("No results found for the search.");
-    return;
-  }
+ async function huntSearch() {
+  let categoriasCheked = [];
+  const text_busqueda = busquedaInput.value.toLowerCase().trim();
+ 
+ const checkElemt = document.querySelectorAll('input[type="checkbox"]');
+ checkElemt.forEach((checkbox) => {
+     if (checkbox.checked) {
+         categoriasCheked.push(checkbox.value);
+     }
+ });
+ 
+ 
+ const resultados = datosMyApi.events.filter(evento => 
+  
+    categoriasCheked.length === 0 || categoriasCheked.includes(evento.category)
+  ).filter(evento => 
+    evento.name.toLowerCase().trim().includes(text_busqueda) ||
+    evento.description.toLowerCase().trim().includes(text_busqueda)
+  );
 
-  printCard(filtrarEvents, "#row");
+  if (resultados.length === 0) {
+   
+   const alertContainer = document.querySelector("#alert")
+   alertContainer.innerHTML = ""; // elimino el contenido anterior del alerta, asi no se repite en el HTML
+   alertContainer.innerHTML += `<p id ="p-alert">No results found. Try again.</p> <img id="img-alert" src="./imagenes/search.png" alt="icon no result foun">`
+     
+     setTimeout(() => {  //elimino el alerta en pantalla despues de 5"
+      alertContainer.innerHTML = "";
+    }, 4000);
+  } else {
+    printCard(resultados, "#row");
+  }
 }
 
-botonSearch.addEventListener("click", function (ev) {
-  ev.preventDefault();
-
+botonSearch.addEventListener("click", event => {
+  event.preventDefault();
   huntSearch();
 });
-
-
+ 
 

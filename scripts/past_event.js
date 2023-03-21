@@ -1,36 +1,41 @@
 
-
-let dateCurrentDate = new Date(data.currentDate)
-let datepastEvent
-
- datepastEvent = data.events.filter( element =>(new Date(element.date) < dateCurrentDate))
-
-
-console.log(datepastEvent)
-
-
-categorias = [];
-data.events.forEach((ele) => {
-  if (!categorias.includes(ele.category)) {
-    categorias.push(ele.category);
+let urlApi = "https://mindhub-xj03.onrender.com/api/amazing"
+let datosMyApi;
+let datepastEvent;
+async function winData(){
+  try{
+    let response = await fetch(urlApi)
+    console.log(response)
+    datosMyApi = await response.json()
+     console.log(datosMyApi)
+     datepastEvent = findPastEvents(datosMyApi)
+   
+    await filterCategories(datepastEvent)
+    showCategories(categorias)
+    huntSearch(datepastEvent)
+    renderCards(datepastEvent)
+    printCard(datepastEvent, "#row")
+  } catch(error){
+    console.log('Hay un error en la Api', error)
   }
-});
-console.log(categorias);
-
-let div = document.querySelector("#categorias");
-let htmlcategorias = "";
-for (let category of categorias) {
-  htmlcategorias +=  `<div class="form-check form-check-inline mx-0">
-    <input class="form-check-input" type="checkbox" id="inlineCheckbox" name="${category}" value ="${category}">
-    <label class="form-check-label" for="${category}">${category}</label> </div>`;
+       
 }
-div.innerHTML = htmlcategorias;
+winData()
+
+
+ function findPastEvents(data) {
+  let dateCurrentDate = new Date(data.currentDate)
+  let datepastEvent = data.events.filter(element => new Date(element.date) < dateCurrentDate)
+  return datepastEvent;
+  
+}
+winData()
+
 
 //Genero las cards dinamicamente
 
-let contenedor = document.querySelector(".row3");
-
-function renderCards(array) {
+async  function renderCards(array) {
+  let contenedor = document.querySelector(".row3");
   let card = document.createElement("div");
   card.classList.add("i.name", "card-new");
   array.forEach((i) => {
@@ -76,69 +81,114 @@ function renderCards(array) {
     contenedor.appendChild(card);
   });
 }
+ 
 
-renderCards(datepastEvent);
+
+//filtrado de categorias
+
+categorias = [];
+ async function filterCategories (arr){
+arr.forEach((ele) => {
+  if (!categorias.includes(ele.category)) {
+    categorias.push(ele.category);
+  }
+})
+ }
+
+ 
+console.log(categorias);
+
+let div = document.querySelector("#categorias");
+ async function showCategories(item){
+  div.innerHTML = "";
+  item.forEach(category =>{
+    div.innerHTML += `<div class="form-check form-check-inline mx-0">
+    <input class="form-check-input" type="checkbox" id="inlineCheckbox" name="${category}" value ="${category}">
+    <label class="form-check-label" for="${category}">${category}</label> 
+   </div>`;
+  })
+    changesCategories()   
+ }
+  
 
 //filtrar por checkboxes
-
+function changesCategories() {
 const checkElemt = document.querySelectorAll('input[type="checkbox"]');
-
+console.log( checkElemt)
 checkElemt.forEach((checkbox) => {
   checkbox.addEventListener("change", () => {
+    console.log(checkbox)
     const cateCheked = [];
-    checkElemt.forEach((cb) => {
-     
-      if (cb.checked) {
-        cateCheked.push(cb.value);
+    checkElemt.forEach((le) => {
+      if (le.checked) {
+        cateCheked.push(le.value);
+        console.log(cateCheked)
       }
-     
     });
-    const filteredObjects = datepastEvent.filter((obj) => {
+    const filtered = datepastEvent.filter((obj) => {
       return cateCheked.includes(obj.category);
     });
-    
-     printCard(filteredObjects,"#row")
+
+      printCard(filtered, "#row");
   });
 });
-
-function printCard(arr, contenedor) {
-  let content = document.querySelector(contenedor)
+}
+ async function printCard(arr, contenedor) {
+  let content = document.querySelector(contenedor);
   content.innerHTML = "";
   if (arr.length > 0) {
     renderCards(arr);
-    console.log("entro por if")
+    console.log("entro por if,printCard");
   } else {
     renderCards(datepastEvent);
-    console.log("entro por else")
-  } 
-  
+    console.log("entro por else");
+  }
 }
-
- //search por input
  
- const searchInput = document.getElementById('search1');
 
-function huntSearch() {
-  const valorSearch = searchInput.value.toLowerCase();
-  const filtrarEvents = datepastEvent.filter(event => {
-    const nameS = event.name.toLowerCase().trim().includes(valorSearch);
-    const descripcionS = event.description.toLowerCase().trim().includes(valorSearch);
-    return nameS || descripcionS;
-    
-  });
+// filtro combinado
+const busquedaInput = document.getElementById("search1");
+const botonSearch = document.getElementById("search")
 
-  if (filtrarEvents.length === 0) {
-    alert('No results found for the search.');
-    return;
+ async function huntSearch() {
+  let categoriasCheked = [];
+  const text_busqueda = busquedaInput.value.toLowerCase().trim();
+ 
+ const checkElemt = document.querySelectorAll('input[type="checkbox"]');
+ checkElemt.forEach((checkbox) => {
+     if (checkbox.checked) {
+         categoriasCheked.push(checkbox.value);
+     }
+ });
+ 
+ 
+ const resultados = datepastEvent.filter(evento => 
+  
+    categoriasCheked.length === 0 || categoriasCheked.includes(evento.category)
+  ).filter(evento => 
+    evento.name.toLowerCase().trim().includes(text_busqueda) ||
+    evento.description.toLowerCase().trim().includes(text_busqueda)
+  );
+
+  if (resultados.length === 0) {
+    const alertContainer = document.querySelector("#alert")
+   alertContainer.innerHTML = ""; // elimino el contenido anterior del alerta, asi no se repite en el HTML
+   alertContainer.innerHTML += `<p id ="p-alert">No results found. Try again.</p> <img id="img-alert" src="./imagenes/search.png" alt="icon no result foun">`
+     
+     setTimeout(() => {  //elimino el alerta en pantalla despues de 5"
+      alertContainer.innerHTML = "";
+    }, 4000);
+  } else {
+    printCard(resultados, "#row");
+  }
 }
 
-  printCard(filtrarEvents, "#row");
-}
+botonSearch.addEventListener("click", event => {
+  event.preventDefault();
+  huntSearch();
+});
 
 
 
-searchInput.addEventListener('input', function(ev) {
-  ev.preventDefault()
 
-  huntSearch()
-})
+
